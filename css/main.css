@@ -13,6 +13,9 @@
   margin: 0;
   padding: 0;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: "Open Sans", sans-serif;
   background-color: black;
@@ -48,50 +51,87 @@ a {
 /* End Global Rules */
 /* Start Header */
 header {
-  height: 100vh;
-  background-size: cover;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 2;
 }
 header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--seColor);
+  position: relative;
+  min-height: 97px;
+}
+header .container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  width: calc(100% - 30px);
+  height: 1px;
+  background-color: #a2a2a2;
+  z-index: -1;
 }
 header .container .logo {
-  width: 10.5%;
+  height: 40px;
 }
 header .container .logo img {
-  width: 100%;
+  height: 100%;
 }
 header .container .links {
-  display: flex;
-  justify-content: flex-end;
+  /* عشان ياخد المساحة كلها */
   flex: 1;
+  display: flex;
   align-items: center;
+  justify-content: flex-end;
+}
+header .container .links .toggle-menu {
+  color: var(--seColor);
+  font-size: 22px;
+}
+@media (min-width: 767.98px){
+  header .container .links .toggle-menu {
+    display: none;
+  }
 }
 header .container .links ul {
   display: flex;
-  margin-right: 30px;
 }
-header .container .links ul li {
-  margin-left: 26px;
-  height: 290%;
-  font-size: 0.9em;
-  text-transform: uppercase;
-  position: relative;
-}
-header .container .links ul li:first-child a {
-  color: var(--mainColor);
-  border-bottom: 1px solid var(--mainColor);
-}
-header .container .links ul li:hover a {
-  border-bottom: 1px solid var(--mainColor);
+@media (max-width: 767.98px){
+  header .container .links ul {
+    display: none;
+  }
+  header .container .links .toggle-menu:hover + ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 50%);
+  } 
+  header .container .links ul a {
+    padding: 15px !important;
+  }
 }
 header .container .links ul li a {
+  font-size: 0.875em;
+  text-transform: uppercase;
   color: var(--seColor);
   height: 100%;
-  padding: 40px 0;
+  padding: 40px 10px;
   display: block;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+header .container .links ul li:first-child a,
+header .container .links ul li:hover a {
+  color: var(--mainColor);
+  border-bottom: 1px solid var(--mainColor);
 }
 header .container .links ul li a::before {
   content: "";
@@ -103,13 +143,26 @@ header .container .links ul li a::before {
 header .container .links ul li a:hover {
   color: var(--mainColor);
 }
-header .container .links ul li:last-child {
-  margin-right: 10px;
+header .container .links .search {
+  width: 40px;
+  height: 30px;
+  position: relative;
+  margin-left: 30px;
+  border-left: 1px solid var(--seColor);
 }
 header .container .links .search i {
-  font-size: 20px;
+  position: absolute;
   color: var(--seColor);
+  font-size: 20px;
+  top: 50%;
+  left: 50%;
+  right: 0;
   cursor: pointer;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
 }
 header .container .links .search:hover i {
   color: var(--mainColor);
