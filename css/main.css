@@ -1,0 +1,117 @@
+/* Start Varialbes */
+  :root {
+    --mainColor: #19c8fa;
+    --seColor: white;
+  }
+/* End Varialbes */
+
+/* Start Global Rules */
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: black;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+}
+/* Small */
+@media (min-width: 768px){
+  .container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px){
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px){
+  .container {
+    width: 1170px;
+  }
+}
+/* End Global Rules */
+/* Start Header */
+header {
+  height: 100vh;
+  background-size: cover;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--seColor);
+}
+header .container .logo {
+  width: 10.5%;
+}
+header .container .logo img {
+  width: 100%;
+}
+header .container .links {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+  align-items: center;
+}
+header .container .links ul {
+  display: flex;
+  margin-right: 30px;
+}
+header .container .links ul li {
+  margin-left: 26px;
+  height: 290%;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  position: relative;
+}
+header .container .links ul li:first-child a {
+  color: var(--mainColor);
+  border-bottom: 1px solid var(--mainColor);
+}
+header .container .links ul li:hover a {
+  border-bottom: 1px solid var(--mainColor);
+}
+header .container .links ul li a {
+  color: var(--seColor);
+  height: 100%;
+  padding: 40px 0;
+  display: block;
+}
+header .container .links ul li a::before {
+  content: "";
+  position: absolute;
+  width: fit-content;
+  height: 2px;
+  background-color: var(--mainColor);
+}
+header .container .links ul li a:hover {
+  color: var(--mainColor);
+}
+header .container .links ul li:last-child {
+  margin-right: 10px;
+}
+header .container .links .search i {
+  font-size: 20px;
+  color: var(--seColor);
+  cursor: pointer;
+}
+header .container .links .search:hover i {
+  color: var(--mainColor);
+}
+/* End Header */
