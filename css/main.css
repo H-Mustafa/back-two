@@ -2,6 +2,7 @@
   :root {
     --mainColor: #19c8fa;
     --seColor: white;
+    --transparent-Color: rgba(15 116 143 / 70%);
   }
 /* End Varialbes */
 
@@ -18,7 +19,6 @@ html {
 }
 body {
   font-family: "Open Sans", sans-serif;
-  background-color: black;
 }
 li {
   list-style: none;
@@ -49,6 +49,52 @@ a {
   }
 }
 /* End Global Rules */
+/* Start Combonent */
+.special-text {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: 400;
+  position: relative;
+  width: fit-content;
+  margin: 30px auto 50px;
+}
+.special-text::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 2px;
+  background: #333;
+  bottom: -25px;
+  left: 15%;
+}
+.special-text::after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  border: 2px solid #333;
+  bottom: -34px;
+  left: 25%;
+  animation: simple 3s infinite alternate;
+  -webkit-animation: simple 3s infinite alternate;
+}
+.special-text + p {
+  max-width: 520px;
+  margin: auto;
+  text-align: center;
+  color: #777;
+  line-height: 1.6;
+  font-size: 1em;
+}
+@keyframes simple {
+  to {
+    left: 65%;
+  }
+}
+/* End Combonent */
 /* Start Header */
 header {
   position: absolute;
@@ -149,7 +195,38 @@ header .container .links .search {
   position: relative;
   margin-left: 30px;
   border-left: 1px solid var(--seColor);
+  position: relative;
 }
+
+header .container .links .search .rr {
+  display: none;
+}
+
+header .container .links .search .rr::before {
+  content: "";
+  width: 20px;
+  height: 15px;
+  background: #333;
+  position: absolute;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  right: 0;
+  bottom: -17px;
+}
+header .container .links .search .rr input {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: #333;
+  padding: 5px 10px;
+  border: none;
+  outline: none;
+  color: white;
+}
+
+header .container .links .search:hover .rr {
+  display: block;
+}
+
 header .container .links .search i {
   position: absolute;
   color: var(--seColor);
@@ -164,7 +241,273 @@ header .container .links .search i {
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
 }
-header .container .links .search:hover i {
+header .container .links i:hover {
   color: var(--mainColor);
 }
 /* End Header */
+
+/* Start Landing */
+.landing {
+  min-height: 100vh;
+  /* if the image not working the color will be avilable */
+  background-color: #333;
+  background-image: url(../images/landing.jpg);
+  background-size: cover;
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000ec;
+}
+.landing .text {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  width: 50%;
+  padding: 50px;
+  background-color: var(--transparent-Color);
+  color: var(--seColor);
+  display: flex;
+  justify-content: flex-end;
+}
+@media (max-width: 767.98px){
+  .landing .text {
+    width: 100%;
+    justify-content: center;
+  }
+}
+.landing .text .content {
+  max-width: 500px;
+}
+.landing .text .content h2 {
+  font-weight: normal;
+  margin: 0 0 20px;
+  font-size: 32px;
+  line-height: 1.5;
+}
+.landing .text .content p {
+  line-height: 2;
+  font-size: 15px;
+}
+.landing .lala {
+  position: absolute;
+  z-index: 5;
+  /*color: #ddd;
+  */top: 50%;
+  transform: translateY(-50px);
+  font-size: 25px;
+  cursor: pointer;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50px);
+  -ms-transform: translateY(-50px);
+  -o-transform: translateY(-50px);
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  color: transparent;
+  background: linear-gradient(-45deg, var(--seColor), var(--mainColor));
+  -webkit-background-clip: text;
+  background-size: 200px;
+  background-position-x: 25px;
+  animation: angle 1s alternate infinite;
+  -webkit-animation: angle 1s alternate infinite;
+}
+
+@keyframes angle {
+  to{background-position-x: 125px;}
+}
+
+.landing .fa-angles-left {
+  left: 15px;
+}
+.landing .fa-angles-left:hover {
+  color: var(--mainColor);
+}
+.landing .fa-angles-right {
+  right: 15px;
+}
+.landing .fa-angles-right:hover {
+  color: var(--mainColor);
+}
+.landing .circle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  min-width: 6%;
+}
+.landing .circle li {
+  color: white;
+  border: 1px solid white;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+.landing .circle li.active,
+.landing .circle li:hover {
+  background-color: var(--mainColor);
+  border-color: var(--mainColor);
+} 
+/* End Landing */
+/* Start Services */
+.services {
+  padding: 60px 0;
+}
+.services .head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.services .container {
+  margin-top: 100px;
+}
+.services .container .srv-con {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 50px;
+}
+.services .container .srv-con .box {
+  display: flex;
+}
+@media (max-width: 1199.98px){
+  .services .container .srv-con .box {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .services .container .srv-con .box .text {
+    margin: 30px auto !important;
+  }
+  .services .container .srv-con .box .text h3 {
+    margin: auto auto 25px;
+  }
+}
+.services .container .srv-con .box:hover i {
+  animation-play-state: running;
+}
+.services .container .srv-con .box .text {
+  margin-left: 50px;
+}
+.services .container .srv-con .box .text h3 {
+  margin: 0 0 25px;
+  color: var(--mainColor);
+  position: relative;
+  width: fit-content;
+}
+.services .srv-con .box .text h3::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  width: 0%;
+  left: 50%;
+  height: 1px;
+  background: var(--mainColor);
+  transform: translateX(-50%);
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+.services .container .srv-con .box:hover .text h3::before {
+  width: 100%;
+}
+.services .container .srv-con .box .text p {
+  line-height: 1.6;
+  color: #777;
+  margin-bottom: 20px;
+  max-width: 550px;
+}
+/* End Services */
+/* Start Design */
+.design {
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+  background-image: url(../images/design-features.jpg);
+  background-size: cover;
+}
+.design .overlay {
+  background-color: #000000b0;
+}
+.design .deisgn-container {
+  display: flex;
+  z-index: 5;
+  position: relative;
+}
+.design .deisgn-container .con {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.design .deisgn-container .con .image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.design .deisgn-container .con img {
+  position: absolute;
+  bottom: -150px;
+  left: 140px;
+}
+.design .deisgn-container .con .box {
+  background-color: var(--transparent-Color);
+  color: var(--seColor);
+  padding: 55px;
+  height: 370px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.design .deisgn-container .con .box h3 {
+  font-weight: normal;
+  font-size: 24px;
+  margin-bottom: 60px;
+}
+.design .deisgn-container .con .box i {
+  margin-bottom: 30px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+.design .deisgn-container .con .box i::before {
+  margin-right: 20px;
+  font-family: 'Font Awesome 5 Pro';
+  font-weight: 900;
+}
+@media (max-width: 991.98px){
+  .design .deisgn-container .con .image {
+    display: none;
+  }
+  .design .deisgn-container .con .box {
+    width: 100%;
+  }
+}
+/* End Design */
