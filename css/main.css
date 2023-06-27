@@ -1138,7 +1138,7 @@ header .container .links i:hover {
 .pricing .boxThree a {
   color: white;
   background-color: var(--mainColor);
-  padding: 15px 20px;
+  padding: 15px 25px;
   transition: 0.2s;
   -webkit-transition: 0.2s;
   -moz-transition: 0.2s;
@@ -1156,3 +1156,68 @@ header .container .links i:hover {
   -o-border-radius: 3px;
 }
 /* End Pricing */
+/* Start Subscribe */
+.subscribe {
+  padding: 100px 0;
+  background-image: url(../images/subscribe.jpg);
+  background-size: cover;
+  position: relative;
+}
+.subscribe::before {
+  background-color: #00000065;
+}
+.subscribe .container {
+  display: flex;
+  position: relative;
+  z-index: 5;
+}
+.subscribe .container form {
+  flex-basis: 50%;
+}
+.subscribe .container form::before {
+  content: "\f0e0";
+  position: relative;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: normal;
+  font-size: 20px;
+  color: white;
+  left: 45px;
+  pointer-events: none;
+}
+.subscribe .container form input::placeholder {
+  color: var(--seColor);
+}
+.subscribe .container form input[type="email"] {
+  outline: none;
+  padding: 20px 25px;
+  background: none;
+  border: 1px solid var(--seColor);
+  border-right-color: transparent;
+  position: relative;
+  color: var(--mainColor);
+  caret-color: var(--mainColor);
+  width: calc(100% - 145px);
+  padding-left: 55px;
+}
+.subscribe .container form input[type="submit"] {
+  background: var(--mainColor);
+  outline: none;
+  border: 1px solid var(--seColor);
+  padding: 20px 25px;
+  border-left-color: transparent;
+  margin-left: -10px;
+  color: white;
+  cursor: pointer;
+}
+.subscribe .container p {
+  color: var(--seColor);
+  line-height: 2;
+  margin-left: 30px;
+}
+@media (max-width: 1199.98px){
+  .subscribe .container {
+    flex-direction: column;
+    row-gap: 30px;
+  }
+}
+/* End Subscribe */
