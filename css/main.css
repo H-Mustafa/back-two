@@ -88,6 +88,7 @@ a {
   color: #777;
   line-height: 1.6;
   font-size: 1em;
+  padding: 0 2px;
 }
 @keyframes simple {
   to {
@@ -1282,8 +1283,8 @@ header .container .links i:hover {
     flex-direction: column;
   }
   .contact .container .boxt {
-    padding: 45px 45px;
     text-align: center;
+    order: -1;
   }
 }
 /* End Contact */
@@ -1344,6 +1345,9 @@ footer .container .social i.fa-linkedin:hover {
   footer .container .social i {
     padding: 10px;
     margin: auto;
+  }
+  footer .container a img {
+    width: 19%;
   }
 }
 footer .container p {
