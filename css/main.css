@@ -1174,6 +1174,10 @@ header .container .links i:hover {
 }
 .subscribe .container form {
   flex-basis: 45%;
+  -webkit-flex-basis: 45%;
+  -moz-flex-basis: 45%;
+  -ms-flex-basis: 45%;
+  -o-flex-basis: 45%;
 }
 .subscribe .container form::before {
   content: "\f0e0";
